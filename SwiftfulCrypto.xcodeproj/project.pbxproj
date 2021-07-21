@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F7A3EA726A7F78000C06921 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A3EA626A7F78000C06921 /* NetworkingManager.swift */; };
+		0F7A3EAA26A803A800C06921 /* CoinImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A3EA926A803A800C06921 /* CoinImageView.swift */; };
+		0F7A3EAC26A8054400C06921 /* CoinImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A3EAB26A8054400C06921 /* CoinImageService.swift */; };
+		0F7A3EAE26A806D900C06921 /* CoinImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A3EAD26A806D900C06921 /* CoinImageViewModel.swift */; };
+		0F7A3EB026A80FD800C06921 /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A3EAF26A80FD800C06921 /* LocalFileManager.swift */; };
 		0FFD525426A69297006F5C50 /* SwiftfulCryptoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFD525326A69297006F5C50 /* SwiftfulCryptoApp.swift */; };
 		0FFD525626A69297006F5C50 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFD525526A69297006F5C50 /* ContentView.swift */; };
 		0FFD525826A69298006F5C50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FFD525726A69298006F5C50 /* Assets.xcassets */; };
@@ -15,6 +20,16 @@
 		0FFD526026A69298006F5C50 /* SwiftfulCrypto.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0FFD525E26A69298006F5C50 /* SwiftfulCrypto.xcdatamodeld */; };
 		0FFD526B26A69298006F5C50 /* SwiftfulCryptoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFD526A26A69298006F5C50 /* SwiftfulCryptoTests.swift */; };
 		0FFD527626A69298006F5C50 /* SwiftfulCryptoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFD527526A69298006F5C50 /* SwiftfulCryptoUITests.swift */; };
+		0FFD52E426A6963A006F5C50 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFD52E326A6963A006F5C50 /* Color.swift */; };
+		0FFD52EB26A69B8E006F5C50 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFD52EA26A69B8E006F5C50 /* HomeView.swift */; };
+		0FFD52EF26A69C62006F5C50 /* CircleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFD52EE26A69C62006F5C50 /* CircleButtonView.swift */; };
+		0FFD52F126A69E6F006F5C50 /* CircleButtonAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFD52F026A69E6F006F5C50 /* CircleButtonAnimationView.swift */; };
+		0FFD52F526A6A084006F5C50 /* CoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFD52F426A6A084006F5C50 /* CoinModel.swift */; };
+		0FFD52F726A6AD22006F5C50 /* CoinRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFD52F626A6AD22006F5C50 /* CoinRowView.swift */; };
+		0FFD52F926A6AD89006F5C50 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFD52F826A6AD89006F5C50 /* PreviewProvider.swift */; };
+		0FFD52FB26A6B29C006F5C50 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFD52FA26A6B29C006F5C50 /* Double.swift */; };
+		0FFD52FD26A6C15F006F5C50 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFD52FC26A6C15F006F5C50 /* HomeViewModel.swift */; };
+		0FFD530026A6D744006F5C50 /* CoinDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFD52FF26A6D744006F5C50 /* CoinDataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +50,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F7A3EA626A7F78000C06921 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
+		0F7A3EA926A803A800C06921 /* CoinImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageView.swift; sourceTree = "<group>"; };
+		0F7A3EAB26A8054400C06921 /* CoinImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageService.swift; sourceTree = "<group>"; };
+		0F7A3EAD26A806D900C06921 /* CoinImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageViewModel.swift; sourceTree = "<group>"; };
+		0F7A3EAF26A80FD800C06921 /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
 		0FFD525026A69297006F5C50 /* SwiftfulCrypto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftfulCrypto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FFD525326A69297006F5C50 /* SwiftfulCryptoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftfulCryptoApp.swift; sourceTree = "<group>"; };
 		0FFD525526A69297006F5C50 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -49,6 +69,16 @@
 		0FFD527126A69298006F5C50 /* SwiftfulCryptoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftfulCryptoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FFD527526A69298006F5C50 /* SwiftfulCryptoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftfulCryptoUITests.swift; sourceTree = "<group>"; };
 		0FFD527726A69298006F5C50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0FFD52E326A6963A006F5C50 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		0FFD52EA26A69B8E006F5C50 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		0FFD52EE26A69C62006F5C50 /* CircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonView.swift; sourceTree = "<group>"; };
+		0FFD52F026A69E6F006F5C50 /* CircleButtonAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonAnimationView.swift; sourceTree = "<group>"; };
+		0FFD52F426A6A084006F5C50 /* CoinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinModel.swift; sourceTree = "<group>"; };
+		0FFD52F626A6AD22006F5C50 /* CoinRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinRowView.swift; sourceTree = "<group>"; };
+		0FFD52F826A6AD89006F5C50 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
+		0FFD52FA26A6B29C006F5C50 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		0FFD52FC26A6C15F006F5C50 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		0FFD52FF26A6D744006F5C50 /* CoinDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +106,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F7A3EA526A7F73E00C06921 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0F7A3EA626A7F78000C06921 /* NetworkingManager.swift */,
+				0F7A3EAF26A80FD800C06921 /* LocalFileManager.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		0F7A3EA826A8039900C06921 /* CoinImage */ = {
+			isa = PBXGroup;
+			children = (
+				0F7A3EA926A803A800C06921 /* CoinImageView.swift */,
+				0F7A3EAD26A806D900C06921 /* CoinImageViewModel.swift */,
+			);
+			path = CoinImage;
+			sourceTree = "<group>";
+		};
 		0FFD524726A69297006F5C50 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +147,11 @@
 		0FFD525226A69297006F5C50 /* SwiftfulCrypto */ = {
 			isa = PBXGroup;
 			children = (
+				0F7A3EA526A7F73E00C06921 /* Utilities */,
+				0FFD52FE26A6D734006F5C50 /* CoinDataService */,
+				0FFD52F326A6A072006F5C50 /* Models */,
+				0FFD52E526A69702006F5C50 /* Extensions */,
+				0FFD52E626A69B5F006F5C50 /* Core */,
 				0FFD525326A69297006F5C50 /* SwiftfulCryptoApp.swift */,
 				0FFD525526A69297006F5C50 /* ContentView.swift */,
 				0FFD525726A69298006F5C50 /* Assets.xcassets */,
@@ -134,6 +187,86 @@
 				0FFD527726A69298006F5C50 /* Info.plist */,
 			);
 			path = SwiftfulCryptoUITests;
+			sourceTree = "<group>";
+		};
+		0FFD52E526A69702006F5C50 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0FFD52E326A6963A006F5C50 /* Color.swift */,
+				0FFD52F826A6AD89006F5C50 /* PreviewProvider.swift */,
+				0FFD52FA26A6B29C006F5C50 /* Double.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0FFD52E626A69B5F006F5C50 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				0FFD52EC26A69C41006F5C50 /* Components */,
+				0FFD52E726A69B74006F5C50 /* Home */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		0FFD52E726A69B74006F5C50 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				0FFD52E926A69B7E006F5C50 /* ViewModels */,
+				0FFD52E826A69B79006F5C50 /* Views */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		0FFD52E826A69B79006F5C50 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0FFD52EA26A69B8E006F5C50 /* HomeView.swift */,
+				0FFD52F626A6AD22006F5C50 /* CoinRowView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0FFD52E926A69B7E006F5C50 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0FFD52FC26A6C15F006F5C50 /* HomeViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		0FFD52EC26A69C41006F5C50 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				0F7A3EA826A8039900C06921 /* CoinImage */,
+				0FFD52ED26A69C52006F5C50 /* CircleButton */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		0FFD52ED26A69C52006F5C50 /* CircleButton */ = {
+			isa = PBXGroup;
+			children = (
+				0FFD52EE26A69C62006F5C50 /* CircleButtonView.swift */,
+				0FFD52F026A69E6F006F5C50 /* CircleButtonAnimationView.swift */,
+			);
+			path = CircleButton;
+			sourceTree = "<group>";
+		};
+		0FFD52F326A6A072006F5C50 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0FFD52F426A6A084006F5C50 /* CoinModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0FFD52FE26A6D734006F5C50 /* CoinDataService */ = {
+			isa = PBXGroup;
+			children = (
+				0FFD52FF26A6D744006F5C50 /* CoinDataService.swift */,
+				0F7A3EAB26A8054400C06921 /* CoinImageService.swift */,
+			);
+			path = CoinDataService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,7 +400,22 @@
 			files = (
 				0FFD526026A69298006F5C50 /* SwiftfulCrypto.xcdatamodeld in Sources */,
 				0FFD525D26A69298006F5C50 /* Persistence.swift in Sources */,
+				0FFD530026A6D744006F5C50 /* CoinDataService.swift in Sources */,
+				0F7A3EA726A7F78000C06921 /* NetworkingManager.swift in Sources */,
+				0FFD52F726A6AD22006F5C50 /* CoinRowView.swift in Sources */,
+				0F7A3EAA26A803A800C06921 /* CoinImageView.swift in Sources */,
+				0F7A3EB026A80FD800C06921 /* LocalFileManager.swift in Sources */,
+				0FFD52EF26A69C62006F5C50 /* CircleButtonView.swift in Sources */,
+				0F7A3EAC26A8054400C06921 /* CoinImageService.swift in Sources */,
+				0FFD52F126A69E6F006F5C50 /* CircleButtonAnimationView.swift in Sources */,
+				0F7A3EAE26A806D900C06921 /* CoinImageViewModel.swift in Sources */,
 				0FFD525626A69297006F5C50 /* ContentView.swift in Sources */,
+				0FFD52F926A6AD89006F5C50 /* PreviewProvider.swift in Sources */,
+				0FFD52EB26A69B8E006F5C50 /* HomeView.swift in Sources */,
+				0FFD52FD26A6C15F006F5C50 /* HomeViewModel.swift in Sources */,
+				0FFD52E426A6963A006F5C50 /* Color.swift in Sources */,
+				0FFD52F526A6A084006F5C50 /* CoinModel.swift in Sources */,
+				0FFD52FB26A6B29C006F5C50 /* Double.swift in Sources */,
 				0FFD525426A69297006F5C50 /* SwiftfulCryptoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

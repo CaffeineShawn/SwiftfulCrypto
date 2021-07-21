@@ -17,20 +17,21 @@ struct ContentView: View {
     private var items: FetchedResults<Item>
 
     var body: some View {
-        List {
-            ForEach(items) { item in
-                Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+        ZStack {
+            Color.theme.background
+                .ignoresSafeArea()
+            VStack(spacing: 40) {
+                Text("Accent Color")
+                    .foregroundColor(Color.theme.accent)
+                Text("Secondary Text Color")
+                    .foregroundColor(Color.theme.secondaryText)
+                Text("Red Color")
+                    .foregroundColor(Color.theme.red)
+                Text("Green Color")
+                    .foregroundColor(Color.theme.green)
             }
-            .onDelete(perform: deleteItems)
-        }
-        .toolbar {
-            #if os(iOS)
-            EditButton()
-            #endif
-
-            Button(action: addItem) {
-                Label("Add Item", systemImage: "plus")
-            }
+            .font(.headline)
+            
         }
     }
 
@@ -75,6 +76,9 @@ private let itemFormatter: DateFormatter = {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        Group {
+            ContentView()
+                .preferredColorScheme(.light)
+        }
     }
 }

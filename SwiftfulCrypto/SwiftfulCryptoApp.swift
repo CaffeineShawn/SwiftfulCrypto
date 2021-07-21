@@ -9,12 +9,15 @@ import SwiftUI
 
 @main
 struct SwiftfulCryptoApp: App {
-    let persistenceController = PersistenceController.shared
+    @StateObject private var vm = HomeViewModel()
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            NavigationView {
+                HomeView()
+                    .navigationBarHidden(true)
+            }
+                .environmentObject(vm)
         }
     }
 }
