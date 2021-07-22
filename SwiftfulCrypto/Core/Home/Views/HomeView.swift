@@ -22,7 +22,7 @@ struct HomeView: View {
             // content layer
             VStack {
                 homeHeader
-                
+                HomeStatsView(showPortfolio: $showPortfolio)
                 SearchBarView(searchText: $vm.searchText)
                 
                 columnTitles
@@ -31,10 +31,10 @@ struct HomeView: View {
                 if !showPortfolio {
                     
                     allCoinsList
-                    .transition(.move(edge: .leading))
+                    .transition(.move(edge: .trailing))
                 } else {
                     portfolioCoinsList
-                    .transition(.move(edge: .trailing))
+                    .transition(.move(edge: .leading))
                 }
                 
                 
@@ -52,6 +52,7 @@ struct HomeView_Previews: PreviewProvider {
                 .navigationBarHidden(true)
                 .environmentObject(dev.homeVM)
         }
+        .preferredColorScheme(.dark)
         
     }
 }
@@ -103,7 +104,9 @@ extension HomeView {
     
     private var columnTitles: some View {
         HStack {
+            
             Text("Coin")
+                .padding(.leading, 15)
             Spacer()
             if showPortfolio {
                 Text("Holdings")
