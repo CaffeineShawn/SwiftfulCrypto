@@ -3,4 +3,102 @@
    uuid = "245DCB08-94F5-4A76-BC47-F12B03838B14"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0806BCF2-C271-4625-A6DC-44CC5E8B5C18"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftfulCrypto/Core/Home/ViewModels/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
+            landmarkName = "mapGlobalMarketData(marketDataModel:portfolioEntities:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "80810B17-D053-4869-916F-7011356767CF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftfulCrypto/Core/Home/ViewModels/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
+            landmarkName = "mapGlobalMarketData(marketDataModel:portfolioEntities:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "80810B17-D053-4869-916F-7011356767CF - 26ee2810a0b8505d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftfulCrypto.HomeViewModel.mapGlobalMarketData(marketDataModel: Swift.Optional&lt;SwiftfulCrypto.MarketDataModel&gt;, portfolioCoins: Swift.Array&lt;SwiftfulCrypto.CoinModel&gt;) -&gt; Swift.Array&lt;SwiftfulCrypto.StatisticModel&gt;"
+                  moduleName = "SwiftfulCrypto"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shawyoung/Desktop/SwiftfulCrypto/SwiftfulCrypto/Core/Home/ViewModels/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "106"
+                  endingLineNumber = "106"
+                  offsetFromSymbolStart = "1164">
+               </Location>
+               <Location
+                  uuid = "80810B17-D053-4869-916F-7011356767CF - 84a00919eabfc1f9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (SwiftfulCrypto.CoinModel) -&gt; Swift.Double in SwiftfulCrypto.HomeViewModel.mapGlobalMarketData(marketDataModel: Swift.Optional&lt;SwiftfulCrypto.MarketDataModel&gt;, portfolioCoins: Swift.Array&lt;SwiftfulCrypto.CoinModel&gt;) -&gt; Swift.Array&lt;SwiftfulCrypto.StatisticModel&gt;"
+                  moduleName = "SwiftfulCrypto"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shawyoung/Desktop/SwiftfulCrypto/SwiftfulCrypto/Core/Home/ViewModels/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "106"
+                  endingLineNumber = "106"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3483DF35-9E52-4CE6-8F5F-BCB4912EB71F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftfulCrypto/Core/Home/ViewModels/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
+            landmarkName = "mapGlobalMarketData(marketDataModel:portfolioEntities:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "15E867A9-C825-48FA-9ADA-479A15A0DE64"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftfulCrypto/Core/Home/ViewModels/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
+            landmarkName = "mapGlobalMarketData(marketDataModel:portfolioEntities:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

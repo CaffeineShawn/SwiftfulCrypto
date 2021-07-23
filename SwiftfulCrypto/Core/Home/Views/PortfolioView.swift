@@ -47,6 +47,7 @@ struct PortfolioView: View {
             })
         }
         .environmentObject(vm)
+       
     }
 }
 
