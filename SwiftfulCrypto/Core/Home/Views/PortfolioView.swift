@@ -20,6 +20,7 @@ struct PortfolioView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
                     SearchBarView(searchText: $vm.searchText)
+                        
                     
                     coinLogoList
                     
@@ -27,7 +28,12 @@ struct PortfolioView: View {
                         portfolioInputSection
                     }
                 }
+                .environmentObject(vm)
             }
+            .background(
+                Color.theme.background
+                    .ignoresSafeArea()
+            )
             .navigationTitle("Edit Portfolio")
             .toolbar(content: {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -46,7 +52,8 @@ struct PortfolioView: View {
                 }
             })
         }
-        .environmentObject(vm)
+        
+       
     }
 }
 
@@ -63,7 +70,7 @@ extension PortfolioView {
     private var coinLogoList: some View {
         ScrollView(.horizontal, showsIndicators: false, content: {
             LazyHStack(spacing: 10) {
-                ForEach(vm.allCoins) { coin in
+                ForEach(vm.searchText.isEmpty ? vm.portfolioCoins : vm.allCoins) { coin in
                     CoinLogoView(coin: coin)
                         .frame(width: 75)
                         .padding(4)
@@ -81,6 +88,7 @@ extension PortfolioView {
             .frame(height: 120)
             .padding(.leading)
         })
+        .background(Color.theme.background)
     }
     
     
@@ -121,6 +129,7 @@ extension PortfolioView {
     
     
     private var trailingNavBarButton: some View {
+        
         HStack(spacing: 10) {
             Image(systemName: "checkmark")
                 .opacity(showCheckmark ? 1.0 : 0.0)
@@ -128,7 +137,7 @@ extension PortfolioView {
                 Text("Save".uppercased())
             })
             .opacity(
-                (selectedCoin != nil && selectedCoin?.currentHoldings != Double(quantityText) ? 1.0 : 0.0)
+                ( selectedCoin != nil && selectedCoin?.currentHoldings != Double(quantityText) ? 1.0 : 0.0)
             )
         }
     }
@@ -160,6 +169,7 @@ extension PortfolioView {
                 showCheckmark = false
             }
         }
+        quantityText = ""
         
         
     }

@@ -22,12 +22,13 @@ struct HomeStatsView: View {
         }
         .frame(width: UIScreen.main.bounds.width, alignment:
                 showPortfolio ? .trailing : .leading)
+        .offset(x: showPortfolio ? 10 : -10)
     }
 }
 
 struct HomeStatsView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeStatsView(showPortfolio: .constant(false))
+        HomeStatsView(showPortfolio: .constant(true))
             .environmentObject(dev.homeVM)
     }
 }

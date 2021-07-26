@@ -106,6 +106,8 @@ struct CoinModel: Identifiable, Codable {
     
     
     
+    
+    
 }
 
 // Codable链式
