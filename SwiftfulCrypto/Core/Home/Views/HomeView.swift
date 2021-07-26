@@ -9,9 +9,10 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject private var vm: HomeViewModel
+    
     @State private var showPortfolio: Bool = false // animate right
     @State private var showPortfolioView: Bool = false // new sheet
-    
+    @State private var showSettingsView: Bool = false
     @State private var selectedCoin: CoinModel? = nil
     @State private var showDetailView: Bool = false
     
@@ -21,15 +22,18 @@ struct HomeView: View {
             // background layer
             Color.theme.background
                 .ignoresSafeArea()
-                .sheet(isPresented: $showPortfolioView, content: {
+                
+                .sheet(isPresented: $showPortfolioView) {
                     PortfolioView()
-                        
-                })
+                        .environmentObject(vm)
+                
+                }
             // content layer
             VStack {
                 homeHeader
                 HomeStatsView(showPortfolio: $showPortfolio)
                 SearchBarView(searchText: $vm.searchText)
+                    
                 
                 columnTitles
                 
@@ -39,24 +43,46 @@ struct HomeView: View {
                     allCoinsList
                         .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .trailing)))
                 } else {
-                    portfolioCoinsList
-                        .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+                    ZStack {
+                        if vm.portfolioCoins.isEmpty && vm.searchText.isEmpty {
+                            portfolioEmptyText
+                        } else {
+                            portfolioCoinsList
+                        }
+                    }
+                    .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+                    
+                    
+                  
+                       
                 }
                 
                 
                 
                 Spacer(minLength: 0)
             }
+            
+            
+            .background(Color.theme.background)
+            .sheet(isPresented: $showSettingsView, content: {
+                SettingsView()
+                    .environmentObject(vm)
+            })
         }
-        .environmentObject(vm)
+        
+        
+        
+        
         .background(
             NavigationLink(
                 destination: DetailLoadingView(coin: $selectedCoin),
                 isActive: $showDetailView,
                 label: { EmptyView()}
             )
+            
         )
     }
+    
 }
 
 struct HomeView_Previews: PreviewProvider {
@@ -66,7 +92,9 @@ struct HomeView_Previews: PreviewProvider {
                 .navigationBarHidden(true)
                 .environmentObject(dev.homeVM)
         }
-        .preferredColorScheme(.dark)
+        .navigationViewStyle(StackNavigationViewStyle())
+        .preferredColorScheme(.light)
+       
         
     }
 }
@@ -77,7 +105,11 @@ extension HomeView {
             CircleButtonView(iconName: showPortfolio ? "plus" : "info")
                 .animation(.none)
                 .onTapGesture {
-                    showPortfolioView.toggle()
+                     if showPortfolio {
+                        showPortfolioView.toggle()
+                     } else {
+                        showSettingsView.toggle()
+                     }
                 }
                 .background(
                     CircleButtonAnimationView(animate: $showPortfolio)
@@ -108,6 +140,7 @@ extension HomeView {
                     .onTapGesture {
                         segue(coin: coin)
                     }
+                    .listRowBackground(Color.theme.background)
             }
         }
         
@@ -120,17 +153,28 @@ extension HomeView {
     }
     
     private var portfolioCoinsList: some View {
-        return List {
+        List {
             ForEach(vm.portfolioCoins) {coin in
                 CoinRowView(coin: coin, showHoldingsColumn: true)
                     .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
                     .onTapGesture {
                         segue(coin: coin)
                     }
+                    .listRowBackground(Color.theme.background)
+                    
             }
         }
         
         .listStyle(PlainListStyle())
+    }
+    
+    private var portfolioEmptyText: some View {
+        Text("Haven't added any cryptos yet! Click the + button to get started.")
+            .font(.callout)
+            .foregroundColor(Color.theme.accent)
+            .fontWeight(.medium)
+            .multilineTextAlignment(.center)
+            .padding(50)
     }
     
     private var columnTitles: some View {

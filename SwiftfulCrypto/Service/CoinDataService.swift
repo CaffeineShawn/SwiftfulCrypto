@@ -26,8 +26,9 @@ class CoinDataService {
         
         // Universal download data from a url
         coinSubscription = NetworkingManager.download(url: url)
-            .decode(type: [CoinModel].self, decoder: JSONDecoder())
+            .decode(type: [CoinModel].self, decoder: JSONDecoder()) // decode in the bg thread then switch back to main thread
             // wtf is sink? completion? weak self?
+            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: NetworkingManager.handleCompletion, receiveValue: { [weak self] (returnedCoins) in
                 self?.allCoins = returnedCoins
                 self?.coinSubscription?.cancel()
