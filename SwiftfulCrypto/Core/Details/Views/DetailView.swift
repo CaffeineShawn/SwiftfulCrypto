@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct DetailLoadingView: View {
-    
-    
+
     @Binding var coin: CoinModel?
-    
+
     var body: some View {
         ZStack {
             if let coin = coin {
@@ -21,65 +20,63 @@ struct DetailLoadingView: View {
     }
 }
 
-
-
 struct DetailView: View {
     @StateObject var vm: DetailViewModel
     @State private var showFullDescription: Bool = false
     private let spacing: CGFloat = 20
     private let columns: [GridItem] = [
         GridItem(.flexible()),
-        GridItem(.flexible()),
+        GridItem(.flexible())
     ]
-    
+
     init(coin: CoinModel) {
-    
+
         _vm = StateObject(wrappedValue: DetailViewModel(coin: coin))
-        
+
     }
-    
+
     var body: some View {
         ScrollView {
-            
+
             VStack {
-                
+
                 ChartView(coin: vm.coin)
                     .padding(.vertical)
-                
+
                 VStack(spacing: spacing) {
-                    
+
                     overviewTitle
                     Divider()
-                    
+
                     descriptionSection
-                    
+
                     overviewLazyVGrid
-                    
+
                     additionalTitle
                     Divider()
                     additionalLazyVGrid
-                    
+
                     webSiteSection
                 }
                 .padding()
-                
+
             }
-            
+
             }
         .background(
             Color.theme.background
                 .ignoresSafeArea()
         )
-       
+
         .navigationTitle(vm.coin.name)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 navigationBarTrailingItems
             }
         }
-        
+
     }
-    
+
 }
 
 struct DetailView_Previews: PreviewProvider {
@@ -87,10 +84,9 @@ struct DetailView_Previews: PreviewProvider {
         NavigationView {
             DetailView(coin: dev.coin)
         }
-        
+
     }
 }
-
 
 extension DetailView {
     private var overviewTitle: some View {
@@ -111,14 +107,14 @@ extension DetailView {
                     }
         })
     }
-    
+
     private var additionalTitle: some View {
          Text("Additional Details")
              .font(.title)
              .bold()
              .foregroundColor(Color.theme.accent)
              .frame(maxWidth: .infinity, alignment: .leading)
-         
+
     }
     private var additionalLazyVGrid: some View {
          LazyVGrid(columns: columns,
@@ -141,7 +137,7 @@ extension DetailView {
                     .frame(width: 25, height: 25)
             }
     }
-    
+
     private var descriptionSection: some View {
         ZStack {
             if let coinDescription = vm.coinDescription, !coinDescription.isEmpty {
@@ -150,7 +146,7 @@ extension DetailView {
                         .lineLimit(showFullDescription ? nil : 3)
                         .font(.callout)
                         .foregroundColor(Color.theme.secondaryText)
-                    
+
                     Button(action: {
                         withAnimation(.easeInOut) {
                             showFullDescription.toggle()
@@ -164,22 +160,22 @@ extension DetailView {
                     .accentColor(.blue)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
-                
+
             }
         }
     }
-    
+
     private var webSiteSection: some View {
         VStack(alignment: .leading, spacing: 20) {
             if let websiteString = vm.websiteURL,
                let url = URL(string: websiteString) {
                 Link("Website", destination: url)
-                
+
             }
             if let redditString = vm.redditURL,
                let url = URL(string: redditString) {
                 Link("Reddit", destination: url)
-                
+
             }
         }
         .accentColor(.blue)

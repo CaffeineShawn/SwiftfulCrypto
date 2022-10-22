@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F01442C2903E14600929D3B /* UserPositions.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F01442A2903E14600929D3B /* UserPositions.xcdatamodeld */; };
+		0F0144342903E70F00929D3B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0F0144332903E70F00929D3B /* README.md */; };
 		0F4D1D2126A9B3B200A6B929 /* PortfolioContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F4D1D1F26A9B3B200A6B929 /* PortfolioContainer.xcdatamodeld */; };
 		0F4D1D2326A9B53800A6B929 /* PortfolioDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4D1D2226A9B53800A6B929 /* PortfolioDataService.swift */; };
 		0F59474626A890CC005ECA29 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F59474526A890CC005ECA29 /* SearchBarView.swift */; };
@@ -73,6 +75,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F01442B2903E14600929D3B /* UserPositions.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserPositions.xcdatamodel; sourceTree = "<group>"; };
+		0F0144332903E70F00929D3B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0F4D1D2026A9B3B200A6B929 /* PortfolioContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PortfolioContainer.xcdatamodel; sourceTree = "<group>"; };
 		0F4D1D2226A9B53800A6B929 /* PortfolioDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioDataService.swift; sourceTree = "<group>"; };
 		0F59474526A890CC005ECA29 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
@@ -234,6 +238,7 @@
 		0FFD524726A69297006F5C50 = {
 			isa = PBXGroup;
 			children = (
+				0F0144332903E70F00929D3B /* README.md */,
 				0FFD525226A69297006F5C50 /* SwiftfulCrypto */,
 				0FFD526926A69298006F5C50 /* SwiftfulCryptoTests */,
 				0FFD527426A69298006F5C50 /* SwiftfulCryptoUITests */,
@@ -254,6 +259,8 @@
 		0FFD525226A69297006F5C50 /* SwiftfulCrypto */ = {
 			isa = PBXGroup;
 			children = (
+				0F01442A2903E14600929D3B /* UserPositions.xcdatamodeld */,
+				0FFD525E26A69298006F5C50 /* SwiftfulCrypto.xcdatamodeld */,
 				0FFD525326A69297006F5C50 /* SwiftfulCryptoApp.swift */,
 				0F7A3EA526A7F73E00C06921 /* Utilities */,
 				0FFD52FE26A6D734006F5C50 /* Service */,
@@ -264,7 +271,6 @@
 				0FFD525726A69298006F5C50 /* Assets.xcassets */,
 				0FFD525C26A69298006F5C50 /* Persistence.swift */,
 				0FFD526126A69298006F5C50 /* Info.plist */,
-				0FFD525E26A69298006F5C50 /* SwiftfulCrypto.xcdatamodeld */,
 				0FFD525926A69298006F5C50 /* Preview Content */,
 			);
 			path = SwiftfulCrypto;
@@ -499,6 +505,7 @@
 			files = (
 				0FB6510326AD3343006D2DB6 /* Launch Screen.storyboard in Resources */,
 				0FFD525B26A69298006F5C50 /* Preview Assets.xcassets in Resources */,
+				0F0144342903E70F00929D3B /* README.md in Resources */,
 				0FFD525826A69298006F5C50 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -561,6 +568,7 @@
 				0FFD52E426A6963A006F5C50 /* Color.swift in Sources */,
 				0F98900226AAF24A0031CDDA /* DetailViewModel.swift in Sources */,
 				0FFD52F526A6A084006F5C50 /* CoinModel.swift in Sources */,
+				0F01442C2903E14600929D3B /* UserPositions.xcdatamodeld in Sources */,
 				0FFD52FB26A6B29C006F5C50 /* Double.swift in Sources */,
 				0F98900626AB221C0031CDDA /* Date.swift in Sources */,
 				0FFD525426A69297006F5C50 /* SwiftfulCryptoApp.swift in Sources */,
@@ -882,6 +890,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		0F01442A2903E14600929D3B /* UserPositions.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0F01442B2903E14600929D3B /* UserPositions.xcdatamodel */,
+			);
+			currentVersion = 0F01442B2903E14600929D3B /* UserPositions.xcdatamodel */;
+			path = UserPositions.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		0F4D1D1F26A9B3B200A6B929 /* PortfolioContainer.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

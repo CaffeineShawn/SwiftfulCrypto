@@ -31,7 +31,7 @@ struct ContentView: View {
                     .foregroundColor(Color.theme.green)
             }
             .font(.headline)
-            
+
         }
     }
 

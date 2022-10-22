@@ -10,22 +10,21 @@ import SwiftUI
 import Combine
 
 class CoinImageService {
-    
-    
-    @Published var image: UIImage? = nil
-    
+
+    @Published var image: UIImage?
+
     var imageSubscription: AnyCancellable?
     private let coin: CoinModel
     private let fileManager = LocalFileManager.instance
     private let folderName = "coin_images"
     private let imageName: String
-    
+
     init(coin: CoinModel) {
         self.coin = coin
         self.imageName = coin.id
         getCoinImageIfExists()
     }
-    
+
     private func getCoinImageIfExists() {
         if let savedImage = fileManager.getImage(imageName: imageName, folderName: folderName) {
             image = savedImage
@@ -35,14 +34,13 @@ class CoinImageService {
 //            print("Downloading image now")
         }
     }
-    
+
     private func downloadCoinImage() {
-        
-        
+
         guard let url = URL(string: coin.image) else {
             return
         }
-        
+
         // Universal download data from a url
         imageSubscription = NetworkingManager.download(url: url)
             .tryMap({ (data) -> UIImage? in

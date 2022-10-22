@@ -17,10 +17,10 @@ struct SettingsView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                
+
                 Color.theme.background
                     .ignoresSafeArea()
-                
+
                 List {
                     mySection
                         .listRowBackground(Color.theme.background.opacity(0.5))
@@ -30,10 +30,9 @@ struct SettingsView: View {
                         .listRowBackground(Color.theme.background.opacity(0.5))
                     applicationSection
                         .listRowBackground(Color.theme.background.opacity(0.5))
-                    
+
                 }
-                
-                
+
             }
             .font(.headline)
             .accentColor(.blue)
@@ -71,7 +70,7 @@ extension SettingsView {
         }
         .padding()
     }
-    
+
     private var coingeckoSection: some View {
         Section(header: Text("CoinGecko")) {
             VStack(alignment: .leading) {
@@ -89,7 +88,7 @@ extension SettingsView {
             Link("Visit CoinGecko ", destination: coingeckoURL)
         }
     }
-    
+
     private var mySection: some View {
         Section(header: Text("Developer")) {
             VStack(alignment: .leading) {
@@ -107,12 +106,12 @@ extension SettingsView {
             Link("Visit GitHub @Caffeine Shawn ", destination: githubURL)
         }
     }
-    
+
     private var applicationSection: some View {
         Section(header: Text("Application")) {
-            Link("Terms of Service",destination: defaultURL)
-            Link("Privacy Policy",destination: defaultURL)
-            Link("Learn more",destination: defaultURL)
+            Link("Terms of Service", destination: defaultURL)
+            Link("Privacy Policy", destination: defaultURL)
+            Link("Learn more", destination: defaultURL)
         }
     }
 }

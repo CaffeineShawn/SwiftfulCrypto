@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct CoinRowView: View {
-    
+
     let coin: CoinModel
     let showHoldingsColumn: Bool
-    
+
     var body: some View {
         HStack(spacing: 0) {
            leftColumn
@@ -21,7 +21,7 @@ struct CoinRowView: View {
             }
             rightColumn
             // Only in portait mode
-           
+
         }
         .font(.subheadline)
         .background(
@@ -33,9 +33,9 @@ struct CoinRowView: View {
 struct CoinRowView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            CoinRowView(coin: dev.coin,showHoldingsColumn: true)
+            CoinRowView(coin: dev.coin, showHoldingsColumn: true)
                 .previewLayout(.sizeThatFits)
-            CoinRowView(coin: dev.coin,showHoldingsColumn: true)
+            CoinRowView(coin: dev.coin, showHoldingsColumn: true)
                 .previewLayout(.sizeThatFits)
                 .preferredColorScheme(.dark)
         }
@@ -56,7 +56,7 @@ extension CoinRowView {
             .padding(.leading, 6)
             .foregroundColor(Color.theme.accent)}
     }
-    
+
     private var centerColumn: some View {
         VStack(alignment: .trailing) {
             Text(coin.currentHoldingsValue.asCurrencyWith6Decimals())
@@ -65,7 +65,7 @@ extension CoinRowView {
         }
         .foregroundColor(Color.theme.accent)
     }
-    
+
     private var rightColumn: some View {
         VStack(alignment: .trailing) {
             Text(coin.currentPrice.asCurrencyWith2Decimals())
@@ -76,8 +76,6 @@ extension CoinRowView {
                     (coin.priceChangePercentage24H ?? 0) >= 0 ? Color.theme.green : Color.theme.red
                 )
         }
-        .frame(width: UIScreen.main.bounds.width / 3.5,alignment: .trailing)
+        .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
     }
 }
-
-

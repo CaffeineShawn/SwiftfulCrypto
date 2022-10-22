@@ -8,16 +8,16 @@
 import Foundation
 
 extension String {
-    func nonZero() -> Bool{
+    func nonZero() -> Bool {
         for i in 0..<self.count {
-            if (i != 0 && self[self.index(self.startIndex, offsetBy: i)] != "0") {
+            if i != 0 && self[self.index(self.startIndex, offsetBy: i)] != "0" {
                 return true
             }
         }
         return false
     }
-    
+
     var removingHTMLOccurences: String {
-        return self.replacingOccurrences(of: "<[^>]+>", with: "",options: .regularExpression, range: nil)
+        return self.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
     }
 }

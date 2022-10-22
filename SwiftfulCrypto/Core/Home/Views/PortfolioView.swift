@@ -8,23 +8,22 @@
 import SwiftUI
 
 struct PortfolioView: View {
-    
+
     @EnvironmentObject private var vm: HomeViewModel
-    @State private var selectedCoin: CoinModel? = nil
+    @State private var selectedCoin: CoinModel?
     @State private var quantityText: String = ""
     @State private var showCheckmark: Bool = false
     @Environment(\.presentationMode) var presentationMode
-    
+
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
                     SearchBarView(searchText: $vm.searchText)
-                        
-                    
+
                     coinLogoList
-                    
-                    if (selectedCoin != nil) {
+
+                    if selectedCoin != nil {
                         portfolioInputSection
                     }
                 }
@@ -38,22 +37,20 @@ struct PortfolioView: View {
             .toolbar(content: {
                 ToolbarItem(placement: .navigationBarLeading) {
                     XMarkButton(presentationMode: _presentationMode)
-                        
-                    
+
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     trailingNavBarButton
                 }
             })
-            
+
             .onChange(of: vm.searchText, perform: { value in
                 if value == "" {
                     removeSelectedCoin()
                 }
             })
         }
-        
-       
+
     }
 }
 
@@ -64,9 +61,8 @@ struct PortfolioView_Previews: PreviewProvider {
     }
 }
 
-
 extension PortfolioView {
-    
+
     private var coinLogoList: some View {
         ScrollView(.horizontal, showsIndicators: false, content: {
             LazyHStack(spacing: 10) {
@@ -90,16 +86,15 @@ extension PortfolioView {
         })
         .background(Color.theme.background)
     }
-    
-    
+
     private func getCurrentValue() -> Double {
         if let quantity = Double(quantityText) {
             return quantity * (selectedCoin?.currentPrice ?? 0)
         }
-        
+
         return 0
     }
-    
+
     private var portfolioInputSection: some View {
         VStack(spacing: 20) {
             HStack {
@@ -126,10 +121,9 @@ extension PortfolioView {
         .padding()
         .font(.headline)
     }
-    
-    
+
     private var trailingNavBarButton: some View {
-        
+
         HStack(spacing: 10) {
             Image(systemName: "checkmark")
                 .opacity(showCheckmark ? 1.0 : 0.0)
@@ -141,28 +135,28 @@ extension PortfolioView {
             )
         }
     }
-    
+
     private func saveButtonPressed() {
-        
+
         guard
             let coin = selectedCoin,
             let amount = Double(quantityText)
         else {
             return
         }
-        
+
         // save
         vm.updateProfolio(coin: coin, amount: amount)
-        
+
         // show checkmark
         withAnimation(.easeIn) {
             showCheckmark = true
             removeSelectedCoin()
         }
-        
+
         // hide kb
         UIApplication.shared.endEditing()
-        
+
         // hide checkmark
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             withAnimation(.easeOut) {
@@ -170,10 +164,9 @@ extension PortfolioView {
             }
         }
         quantityText = ""
-        
-        
+
     }
-    
+
     private func removeSelectedCoin() {
         selectedCoin = nil
         vm.searchText = ""

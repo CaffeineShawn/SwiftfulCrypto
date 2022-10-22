@@ -9,32 +9,30 @@ import Foundation
 import Combine
 
 class HomeViewModel: ObservableObject {
-    
+
     @Published var statistics: [StatisticModel] = []
-    
-    
+
     @Published var allCoins: [CoinModel] = []
     @Published var portfolioCoins: [CoinModel] = []
     @Published var isLoading: Bool = false
     @Published var searchText: String = ""
     @Published var sortOption: SortOption = .holdings
-    
+
     private let coinDataService = CoinDataService()
     private let marketDataService = MarketDataService()
     private let portfolioDataService = PortfolioDataService()
     private var cancallables = Set<AnyCancellable>()
-    
+
     enum SortOption {
         case rank, rankReversed, holdings, holdingsReversed, price, priceReversed
     }
-    
-    
+
     init() {
        addSubscribers()
     }
-     
+
     func addSubscribers() {
-        
+
         // updates allCoins
         $searchText
             .combineLatest(coinDataService.$allCoins, $sortOption)// 河南人偷数据咯
@@ -44,7 +42,7 @@ class HomeViewModel: ObservableObject {
                 self?.allCoins = returnedCoins
             }
             .store(in: &cancallables)
-        
+
         // updates portfolioCoins
         $allCoins
             .combineLatest(portfolioDataService.$savedEntities)
@@ -54,7 +52,7 @@ class HomeViewModel: ObservableObject {
                 self.portfolioCoins = self.sortProfolioCoinsIfNeeded(coins: returnedCoins)
             }
             .store(in: &cancallables)
-        
+
         // updates marketData
         marketDataService.$marketData
             .combineLatest($portfolioCoins)
@@ -64,63 +62,61 @@ class HomeViewModel: ObservableObject {
                 self?.isLoading = false
             }
             .store(in: &cancallables)
-        
+
     }
-    
-    
+
     func updateProfolio(coin: CoinModel, amount: Double) {
         portfolioDataService.updatePortfolio(coin: coin, amount: amount)
     }
-    
+
     func reloadData() {
         isLoading = true
         coinDataService.getCoins()
         marketDataService.getData()
         HapticManager.notification(type: .success)
     }
-    
+
     private func filterAndSortCoins(text: String, coins: [CoinModel], sort: SortOption) -> [CoinModel] {
         var updatedCoins = filterCoins(text: text, coins: coins)
         // sort
         sortCoins(sort: sort, coins: &updatedCoins) // "&" in and out annotation
-        
+
         return updatedCoins
     }
-    
-    
+
     private func filterCoins(text: String, coins: [CoinModel]) -> [CoinModel] {
         guard !text.isEmpty else {
             return coins
         }
-        
+
         let lowercasedText = text.lowercased()
-        
+
         return coins.filter { (coin) -> Bool in
             return coin.name.lowercased().contains(lowercasedText) || coin.symbol.lowercased().contains(lowercasedText) || coin.id.lowercased().contains(lowercasedText)
         }
     }
-    
+
 // ```sorted creates new array but sort does not
     private func sortCoins(sort: SortOption, coins: inout [CoinModel]) { // return out the same array[] sent in
         switch sort {
         case .rank, .holdings:
-            
+
 //            return coins.sorted { coin1, coin2 in
 //                return coin1.rank < coin2.rank
 //            }
             return coins.sort(by: { $0.rank < $1.rank })
         case .rankReversed, .holdingsReversed:
             return coins.sort(by: { $0.rank > $1.rank })
-            
+
         case .price:
             return coins.sort(by: { $0.currentPrice > $1.currentPrice })
-            
+
         case .priceReversed:
             return coins.sort(by: { $0.currentPrice < $1.currentPrice })
-            
+
         }
     }
-    
+
     private func sortProfolioCoinsIfNeeded(coins: [CoinModel]) -> [CoinModel] {
         // will only sort by holdings or reversed holdings if needed
         switch sortOption {
@@ -132,7 +128,7 @@ class HomeViewModel: ObservableObject {
             return coins
         }
     }
-    
+
     private func mapAllCoinsToPortfolioCoins(allCoins: [CoinModel], portfolioEntities: [PortfolioEntity]) -> [CoinModel] {
         allCoins
             .compactMap { (coin) -> CoinModel? in
@@ -142,43 +138,42 @@ class HomeViewModel: ObservableObject {
                 return coin.updateHoldings(amount: entity.amount)
             }
     }
-    
+
     private func mapGlobalMarketData(marketDataModel: MarketDataModel?, portfolioEntities: [CoinModel]) -> [StatisticModel] {
         var stats: [StatisticModel] = []
-        
+
         guard let data = marketDataModel else {
             // return a blank and empty array of SM
             return stats
         }
-        
+
         let marketCap = StatisticModel(title: "Market Cap", value: data.marketCap, percentageChange: data.marketCapChangePercentage24HUSD)
-        
+
         let volume = StatisticModel(title: "24h Volume", value: data.volume)
         let btcDominance = StatisticModel(title: "BTC Dominance", value: data.btcDominace)
-        
+
 //        let portfolioValue = portfolioCoins.map { (coin) -> Double in
 //            return coin.currentHoldingsValue
 //        }
-        
+
         let portfolioValue = portfolioCoins.map({$0.currentHoldingsValue})
             .reduce(0, +)
-        
+
         let previousValue = portfolioCoins.map { (coin) -> Double in
             let currentValue = coin.currentHoldingsValue
             // 25% -> 25 -> 0.25
             let percentChange = coin.priceChangePercentage24H ?? 0 / 100
-            
+
             let previousValue = currentValue / (1 + percentChange / 100)
-            
+
             return previousValue
         }
         .reduce(0, +)
 
-        
         let percentageChange = ((portfolioValue - previousValue)/previousValue) * 100
-        
+
         let portfolio = StatisticModel(title: "Portfolio Value", value: portfolioValue.asCurrencyWith2Decimals(), percentageChange: percentageChange)
-        
+
         stats.append(contentsOf: [
             marketCap,
             volume,
@@ -188,4 +183,3 @@ class HomeViewModel: ObservableObject {
         return stats
     }
 }
-

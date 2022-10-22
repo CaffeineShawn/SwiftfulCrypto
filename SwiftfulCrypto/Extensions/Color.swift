@@ -29,8 +29,6 @@ struct ColorTheme2 {
     let secondaryText = Color(#colorLiteral(red: 0.476841867, green: 0.5048075914, blue: 1, alpha: 1))
 }
 
-
-
 struct LaunchTheme {
     let accent = Color("LaunchAccentColor")
     let background = Color("LaunchBackgroundColor")

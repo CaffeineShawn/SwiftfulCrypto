@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct StatisticView: View {
-    
+
     let stat: StatisticModel
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 4, content: {
             Text(stat.title)
@@ -24,7 +24,7 @@ struct StatisticView: View {
                     .font(.caption2)
                     .rotationEffect(Angle(degrees: (stat.percentageChange ?? 0) >= 0
                                         ? 0 : 180))
-                
+
                 Text(stat.percentageChange?.asPercentString() ?? "")
                     .font(.caption)
                     .bold()
